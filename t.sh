@@ -68,6 +68,10 @@ local_sed ()
     sed -i "s/id=\"default\" path=\"\/home\/syncthing\/Sync\"/id=\"$folder\" path=\"\/sync\"/" $folder/config/config.xml
     sed -i "s/urAccepted>0/urAccepted>-1/" $folder/config/config.xml
 
+    grep "^        <device id=" $folder/config/config.xml
+    sed -i "/^        <device id=/r s_folder_device_id" $folder/config/config.xml
+    sed -i "/^    <\/device>/r s_device_id" $folder/config/config.xml
+
     echo
 }
 

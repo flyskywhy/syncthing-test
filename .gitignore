@@ -1,3 +1,5 @@
 *
 !/.gitignore
 !/t.sh
+!/s_folder_device_id
+!/s_device_id
