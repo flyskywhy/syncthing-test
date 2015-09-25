@@ -16,7 +16,9 @@ local_help ()
     echo "t.sh add <1-1000>     - add a init complete config.xml in a folder and run a container"
     echo
     echo "t.sh run <1-1000>     - docker run a container ref to a folder"
+    echo "t.sh runall <1-1000>  - docker run many containers"
     echo "t.sh kill <1-1000>    - docker kill a container ref to a folder"
+    echo "t.sh killall <1-1000> - docker kill many containers"
     echo "t.sh sed <1-1000>     - replace config/config.xml to be init complete in a folder"
     echo
     echo "t.sh help             - show this help message"
@@ -53,11 +55,35 @@ local_run ()
     echo
 }
 
+local_runall ()
+{
+    folders=$1
+    i=0
+    while [ $i -lt $folders ]; do
+        local_run $i
+        i=$(( $i + 1 ))
+    done
+
+    echo
+}
+
 local_kill ()
 {
     folder=$1
     p8384=$((8700 + $folder))
     docker ps | grep $p8384 | sed -e 's/ .*//' | xargs docker kill
+
+    echo
+}
+
+local_killall ()
+{
+    folders=$1
+    i=0
+    while [ $i -lt $folders ]; do
+        local_kill $i
+        i=$(( $i + 1 ))
+    done
 
     echo
 }
@@ -78,6 +104,12 @@ local_sed ()
 local_add ()
 {
     folder=$1
+
+    if [ ! -d $folder ] ; then
+        mkdir -p $folder/config
+        mkdir -p $folder/sync
+    fi
+
     local_run $folder
     while [ ! -f $folder/config/config.xml ]; do
         sleep 1
@@ -96,8 +128,12 @@ elif [ $1 = mkdir ] ; then
     local_mkdir $2
 elif [ $1 = run ] ; then
     local_run $2
+elif [ $1 = runall ] ; then
+    local_runall $2
 elif [ $1 = kill ] ; then
     local_kill $2
+elif [ $1 = killall ] ; then
+    local_killall $2
 elif [ $1 = sed ] ; then
     local_sed $2
 elif [ $1 = add ] ; then
