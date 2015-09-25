@@ -40,7 +40,7 @@ local_run ()
     folder=$1
     p8384=$((8700 + $folder))
     p22000=$((22700 + $folder))
-    p21025=$((22700 + $folder))
+    p21025=$((21700 + $folder))
     docker run -d \
       --restart=on-failure:20 \
       -v /pub/syncthing/$folder/config:/config \
