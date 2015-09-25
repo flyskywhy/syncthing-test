@@ -13,13 +13,13 @@ local_help ()
     echo "    And so on: <./t.sh add 1> then open host_IP:8701"
     echo
     echo "t.sh mkdir <1-1000>   - mkdir many folders"
-    echo "t.sh add <1-1000>     - add a init complete config.xml in a folder and run a container"
+    echo "t.sh add <0-999>      - add a init complete config.xml in a folder and run a container"
     echo
-    echo "t.sh run <1-1000>     - docker run a container ref to a folder"
+    echo "t.sh run <0-999>      - docker run a container ref to a folder"
     echo "t.sh runall <1-1000>  - docker run many containers"
-    echo "t.sh kill <1-1000>    - docker kill a container ref to a folder"
+    echo "t.sh kill <0-999>     - docker kill a container ref to a folder"
     echo "t.sh killall <1-1000> - docker kill many containers"
-    echo "t.sh sed <1-1000>     - replace config/config.xml to be init complete in a folder"
+    echo "t.sh sed <0-999>      - replace config/config.xml to be init complete in a folder"
     echo
     echo "t.sh help             - show this help message"
 }
