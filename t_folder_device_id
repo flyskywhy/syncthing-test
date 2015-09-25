@@ -1,0 +1,11 @@
+    <folder id="SED_FOLDER" path="SED_PWD/SED_FOLDER" ro="false" rescanIntervalS="60" ignorePerms="false" autoNormalize="true">
+        <device id="AZ4QPWK-BULEGMC-MIHJTFK-WOAPEX3-IY6TDYE-BAPT5EY-472HDTN-TS3C5QJ"></device>
+        <device id="SED_ID"></device>
+        <minDiskFreePct>1</minDiskFreePct>
+        <versioning></versioning>
+        <copiers>0</copiers>
+        <pullers>0</pullers>
+        <hashers>0</hashers>
+        <order>random</order>
+        <ignoreDelete>false</ignoreDelete>
+    </folder>

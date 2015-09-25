@@ -3,3 +3,6 @@
 !/t.sh
 !/s_folder_device_id
 !/s_device_id
+!/s.sh
+!/t_folder_device_id
+!/t_device_id
