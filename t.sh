@@ -7,14 +7,13 @@ local_help ()
 {
     echo "Automatically add a new docker container flyskywhy/syncthing into host computer"
     echo "Simple usage:"
-    echo "    ./t.sh mkdir 10"
     echo "    ./t.sh add 0"
     echo "    Then you can use web browser to open host_IP:8700"
     echo "    And so on: <./t.sh add 1> then open host_IP:8701"
     echo
-    echo "t.sh mkdir <1-1000>   - mkdir many folders"
     echo "t.sh add <0-999>      - add a init complete config.xml in a folder and run a container"
     echo
+    echo "t.sh mkdir <1-1000>   - mkdir many folders"
     echo "t.sh run <0-999>      - docker run a container ref to a folder"
     echo "t.sh runall <1-1000>  - docker run many containers"
     echo "t.sh kill <0-999>     - docker kill a container ref to a folder"

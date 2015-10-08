@@ -7,14 +7,14 @@ local_help ()
 {
     echo "Automatically add a new syncthing device id from terminal"
     echo "Simple usage:"
-    echo "    ./t.sh mkdir 100"
     echo "    ./t.sh sed 97 ZIBCVZJ-FRXCMWH-7YWCRA3-O7XDSUE-GF24LAG-FUDPXGE-M6HSPHG-PDEFTQD"
     echo "    Then you should restart syncthing on server"
     echo
-    echo "t.sh mkdir <1-1000>   - mkdir many folders"
-    echo "t.sh sed <0-999> <id> - sed the config.xml to add a syncthing device id ref to a folder"
+    echo "s.sh sed <0-999> <id> - sed the config.xml to add a syncthing device id ref to a folder"
+
+    echo "s.sh mkdir <1-1000>   - mkdir many folders"
     echo
-    echo "t.sh help             - show this help message"
+    echo "s.sh help             - show this help message"
 }
 
 local_mkdir ()
