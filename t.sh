@@ -18,6 +18,8 @@ local_help ()
     echo "t.sh runall <1-1000>  - docker run many containers"
     echo "t.sh kill <0-999>     - docker kill a container ref to a folder"
     echo "t.sh killall <1-1000> - docker kill many containers"
+    echo "t.sh edit <0-999>     - edit sync/foobar.txt ref to a folder"
+    echo "t.sh editall <1-1000> - edit sync/foobar.txt ref to many folders"
     echo "t.sh sed <0-999>      - replace config/config.xml to be init complete in a folder"
     echo
     echo "t.sh help             - show this help message"
@@ -87,6 +89,28 @@ local_killall ()
     echo
 }
 
+local_edit ()
+{
+    folder=$1
+    echo "Added below to $folder/sync/foobar.txt"
+    echo "foobar"
+    echo "foobar" >> $folder/sync/foobar.txt
+
+    echo
+}
+
+local_editall ()
+{
+    folders=$1
+    i=0
+    while [ $i -lt $folders ]; do
+        local_edit $i
+        i=$(( $i + 1 ))
+    done
+
+    echo
+}
+
 local_sed ()
 {
     folder=$1
@@ -137,6 +161,10 @@ elif [ $1 = kill ] ; then
     local_kill $2
 elif [ $1 = killall ] ; then
     local_killall $2
+elif [ $1 = edit ] ; then
+    local_edit $2
+elif [ $1 = editall ] ; then
+    local_editall $2
 elif [ $1 = sed ] ; then
     local_sed $2
 elif [ $1 = add ] ; then
